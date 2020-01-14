@@ -40,7 +40,7 @@ setTimeout(function() {
 function drawHighcharts() {
     Highcharts.chart(chartId, {
         chart: {
-            type: 'bar',
+            type: 'line',
             styledMode: true,
             spacingBottom: 25,
             spacingRight: 100
@@ -49,37 +49,29 @@ function drawHighcharts() {
             text: null
         },
         data: {
-            googleSpreadsheetKey: '1YOKb5l2VM4aAB2r20N_1aT_1vEajYrP3U-U3A6lZbC0'
-        },
-        // for bar charts only
-        plotOptions: {
-            series: {
-                groupPadding: 0.1
-            } 
+            googleSpreadsheetKey: '1X5CqibtwzBH7JH7Klgqkl-BOBWj8mZHwXWfuBB88E2Y',
+            startColumn: 5,
+            endColumn: 7
         },
         // for line charts only
-        // plotOptions: {
-        //     series: {
-        //         lineWidth: 1,
-        //         // clip: false,
-        //         marker: {
-        //             enabled: false,
-        //             symbol: 'circle',
-        //             fillColor: '#ffffff',
-        //             states: {
-        //                 hover: {
-        //                     fillColor: '#ffffff'
-        //                 }
-        //             }
-        //         }
-        //     }
-        // },
+        plotOptions: {
+            series: {
+                lineWidth: 1,
+                // clip: false,
+                marker: {
+                    enabled: false,
+                    symbol: 'circle',
+                    fillColor: '#ffffff',
+                    states: {
+                        hover: {
+                            fillColor: '#ffffff'
+                        }
+                    }
+                }
+            }
+        },
         legend: {
-            align: 'right',
-            symbolRadius: 0,
-            verticalAlign: 'top',
-            x: 10,
-            itemMarginTop: -10
+            enabled: false
         },
         xAxis: {
             labels: {
@@ -93,16 +85,73 @@ function drawHighcharts() {
             title: false,
             labels: {
                 useHTML: true,
-                overflow: 'allow'
-            }
+                overflow: 'allow',
+                format: '{value:.2f}'
+            },
+            tickAmount: 7,
+            max: 1.5
         },
         credits: {
             enabled: false
         },
         tooltip: {
             shadow: false,
-            padding: 10
+            padding: 10,
+            formatter: function() {
+                let value = (this.y*1000000);
+                return '$' + (value).toLocaleString(undefined,
+                    {'minimumFractionDigits':0,'maximumFractionDigits':0});
+            }
         },
+        annotations: [{
+            labels: [{
+                point: {
+                    xAxis: 0,
+                    yAxis: 0,
+                    x: 1,
+                    y: 1.2
+                },
+                text: 'Starts at 25',
+                useHTML: true,
+                backgroundColor: 'white',
+                align: 'left'
+            }, {
+                point: {
+                    xAxis: 0,
+                    yAxis: 0,
+                    x: 1,
+                    y: 1
+                },
+                text: '$1,300,000',
+                useHTML: true,
+                backgroundColor: 'white',
+                align: 'left',
+                className: 'annotation-big-green'
+            }, {
+                point: {
+                    xAxis: 0,
+                    yAxis: 0,
+                    x: 1,
+                    y: 0.85
+                },
+                text: 'Starts at 35',
+                useHTML: true,
+                backgroundColor: 'white',
+                align: 'left'
+            }, {
+                point: {
+                    xAxis: 0,
+                    yAxis: 0,
+                    x: 1,
+                    y: 0.65
+                },
+                text: '$565,000',
+                useHTML: true,
+                backgroundColor: 'white',
+                align: 'left',
+                className: 'annotation-big-gray'
+            }],
+        }],
         responsive: {
             rules: [{
             condition: {

@@ -8,7 +8,7 @@
   <title>Graphic preview</title>
 
   <!--build:css css/styles.min.css-->
-  <link rel="stylesheet" href="css/highcharts-setup_styles.css">
+  <link rel="stylesheet" href="css/compound-interest-2_styles.css">
   <!--endbuild-->
 
 </head>
@@ -16,15 +16,14 @@
 <body>
 
   <div class="chart-area">
-      <div class="chart-head" id="chart-head">This is a headline</div>
-      <div class="chart-subhead">This is a subdeck or chart title. In some cases, there might be a need for a chart title also.</div>
-      <div class="chart-title">This is a chart title</div>
+      <div class="chart-head" id="chart-head">The power of compounding</div>
+      <div class="chart-subhead">Someone who starts saving $5,000 per year at age 25 will wind up with more than twice as much money by age 65 than someone who waits till 35 to start saving.</div>
       <div class="chart-title-social">Social chart title</div>
       <div class="chart-container" id="chart-container"></div>
-      <div class="chart-note">Note: Anything that needs an additional note or methodology explanation should go here.</div>
+      <div class="chart-note">Note: Assumes an 8% rate of return, compounded annually.</div>
       <div>
         <span class="chart-credit">kiersten schmidt/grow</span>
-        <span class="chart-source">this is the source</span>
+        <span class="chart-source">Grow calculations</span>
       </div>
       <img src="https://fm-static.cnbc.com/awsmedia/chart/2019/6/10/grow_logo.1562793450037.png" class="grow-logo">
       <img src="https://fm-static.cnbc.com/awsmedia/chart/2019/6/25/grow_logo_transparent-08.1564071637122.png" class="grow-logo-social">
@@ -33,10 +32,10 @@
     
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
-  <!-- <script src="http://code.highcharts.com/modules/exporting.js"></script> -->
+  <script src="http://code.highcharts.com/modules/annotations.js"></script>
   <!-- <script src="https://code.highcharts.com/highcharts-more.js"></script> -->
   <!--build:js js/main.min.js -->
-  <script src="js/highcharts-setup_main.js"></script>
+  <script src="js/compound-interest-2_main.js"></script>
   <!-- endbuild -->
 </body>
 </html>
